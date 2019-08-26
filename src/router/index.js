@@ -3,6 +3,7 @@ import BasicLayout from '@/layout/BasicLayout';
 import Home from "@/pages";
 import User from '@/pages/User';
 import Game from '@/pages/Game';
+import Redux from '@/pages/Redux';
 import NotFound from '@/pages/Exception';
 
 
@@ -32,6 +33,11 @@ export const routes = [
         path:'/game',
         layout:BasicLayout,
         component:Game
+      },
+      {
+        path:'/redux',
+        layout:BasicLayout,
+        component:Redux
       }
     ]
   },

@@ -26,7 +26,8 @@ class Header extends React.Component {
       color:'#ff671b',
       fontSize:40,
       textAlign:'center',
-      lineHeight:'250%'
+      lineHeight:'250%',
+      marginBottom: "25px"
     };
     return (
       <h1 style={backAndTextColor}>Hello React</h1>
@@ -39,7 +40,9 @@ class BasicLayout extends React.PureComponent{
       super(props);
       this.state = {
         navList: [
+          {name:'home',link:'navone/home'},
           {name:'user',link:"navone/user"},
+          {name:'redux',link:'navone/redux'},
           {name:"game",link:"navone/game"},
           {name:"lallal",link:'lalalal'}
         ]

@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 const tiger = 10000
 
 //这是action
@@ -19,5 +18,5 @@ const reducer = (state = tiger, action) => {
             return state;
     }
 }
-const store = createStore(reducer)
-export default store
+
+export default reducer
