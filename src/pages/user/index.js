@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TableList from './components/TableList'
-import LoadingBox from '../../components/loading'
+import LoadingBox from '../../components/Loading'
 import axios from 'axios';
 
 class User extends Component {

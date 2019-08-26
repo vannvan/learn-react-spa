@@ -1,13 +1,14 @@
 @import './theme.scss';
 .loading-box{
-  margin:100px auto;
+  // margin:100px auto;
   width: 8em;
   height: 8em;
-  position: fixed;
+  position:fixed;
   top:0;
-  bottom:0;
-  left:0;
   right:0;
+  left:0;
+  bottom:0;
+  margin:auto; 
   .progress{position: absolute;
     width: 6em; height:6em;
     background-color: white;
