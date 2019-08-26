@@ -3,6 +3,9 @@ import BasicLayout from '@/layout/BasicLayout';
 import Home from "@/pages";
 import User from '@/pages/User';
 import Game from '@/pages/Game';
+import NotFound from '@/pages/Exception';
+
+
 const createHistory = require("history").createBrowserHistory
 export const history = createHistory();
 
@@ -32,4 +35,8 @@ export const routes = [
       }
     ]
   },
+  {
+    path:'*',
+    component:NotFound
+  }
 ]

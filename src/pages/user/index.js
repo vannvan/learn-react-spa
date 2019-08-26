@@ -28,16 +28,19 @@ class User extends Component {
       })
     })
   }
+  renderTableTh() {
+    const titleList = ['ID','姓名','年龄','性别']
+    return titleList.map(el =>
+      <th key={el}>{el}</th>
+    )
+  }
   render() {
       return (
         <div>
           <table className="table border">
             <thead>
               <tr>
-                <th className="text-center">ID</th>
-                <th className="text-center">姓名</th>
-                <th className="text-center">年龄</th>
-                <th className="text-center">性别</th>
+                {this.renderTableTh()}
               </tr>
             </thead>
           <tbody>

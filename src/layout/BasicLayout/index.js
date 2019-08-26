@@ -40,7 +40,8 @@ class BasicLayout extends React.PureComponent{
       this.state = {
         navList: [
           {name:'user',link:"navone/user"},
-          {name:"game",link:"navone/game"}
+          {name:"game",link:"navone/game"},
+          {name:"lallal",link:'lalalal'}
         ]
       }
     }

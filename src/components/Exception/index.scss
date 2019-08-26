@@ -1,0 +1,29 @@
+.exception-component{
+  height: 300px;
+  width: 30%;
+  // background: #ccc;
+  margin:auto;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+  .content{
+    text-align: center;
+    h1{
+      font-size: 100px;
+      line-height: 150%;
+      font-weight: bold;
+    }
+  }
+  .imgEle{
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    margin:30px auto;
+  }
+  .actions {
+    text-align: center;
+    margin-top: 35px;
+  }
+}
