@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import TableList from './components/TableList'
 import LoadingBox from '../../components/Loading'
-import axios from 'axios';
-
+import {API} from '@/api';
 class User extends Component {
   constructor(props) {
     super(props);
@@ -13,19 +12,11 @@ class User extends Component {
   }
   componentDidMount() {
     const _this=this;    //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
-    axios.get('https://5b5e71c98e9f160014b88cc9.mockapi.io/api/v1/lists')
-    .then(function (response) {
+    API.fetchUserInfo({}).then(res =>{
       _this.setState({
-        users:response.data,
-        isLoaded:true
+          users:res.data,
+          isLoaded:true
       });
-    })
-    .catch(function (error) {
-      console.log(error);
-      _this.setState({
-        isLoaded:false,
-        error:error
-      })
     })
   }
   renderTableTh() {
