@@ -6,10 +6,11 @@ import store from '@/store'
 import App from './App';
 
 import '@/theme/index.scss';
+const rootElement = document.getElementById("root");
 
 render(
   <Provider store={store}>
       <App />
   </Provider>,
-  document.getElementById('root')
+  rootElement
 )

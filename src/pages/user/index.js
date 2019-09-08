@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TableList from './components/TableList'
-import LoadingBox from '../../components/Loading'
+import LoadingBox from '@/components/Loading'
 import {API} from '@/api';
 class User extends Component {
   constructor(props) {
