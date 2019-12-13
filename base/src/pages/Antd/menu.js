@@ -1,69 +1,79 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
-const { SubMenu } = Menu;
+const SubMenu = Menu.SubMenu;
 
 class antdMenu extends React.Component {
+  static defaultProps = {
+    menulist:[
+       { path:"/1",title:"meun1",icon:"book" },
+      { path:"/2",title:"meun2",icon:"issues-close",
+          children:[
+            { title:"meun3",path:"/3",icon:"info-circle",children:[
+                { title:"meun4",path:"/4",icon:"bars"},
+                { title:"meun5",path:"/5",icon:"bars"},
+                { title:"meun6",path:"/6",icon:"bars"},
+                { title:"meun7",path:"/7",icon:"bars" }
+              ] },
+            { title:"meun8",path:"/8",icon:"branches",children:[
+                { title:"meun9",path:"/9",icon:"bars" },
+                { title:"meun10",path:"/10",icon:"bars" },
+              ] },
+            { title:"meun11",path:"/11",icon:"bars" },
+            { title:"meun12",path:"/12",icon:"bars"},
+          ]
+       }
+    ]
+  }
+
   handleClick = e => {
     console.log('click ', e);
   };
 
+  createMenu =  ((menuData)=>{  //创建菜单
+    //let itemIndex = 0; //累计的每一项索引
+    let submenuIndex = 0; //累计的每一项展开菜单索引
+    let menu = [];
+    const create = (menuData,el)=>{
+      for(let i=0;i<menuData.length;i++){
+        if(menuData[i].children){  //如果有子级菜单
+          let children = [];
+          create(menuData[i].children,children);
+          submenuIndex++;
+          el.push(
+            <SubMenu
+              key={`sub${submenuIndex}`}
+              title={(
+                <span style={{ height:'100%',display: 'block' }}>
+                  <Icon type={menuData[i].icon} />{menuData[i].title}
+                </span>
+              )}
+            >
+              {children}
+            </SubMenu>
+          )
+        }else{   //如果没有子级菜单
+          //itemIndex++;
+          el.push(
+            <Menu.Item key={menuData[i].path} title={menuData[i].title}>
+                {menuData[i].icon ? <Icon type={menuData[i].icon} /> : null}
+                <span>{menuData[i].title}</span>
+            </Menu.Item>
+          )
+        }
+      }
+
+    };
+
+    create(menuData,menu);
+    return menu;
+  })(this.props.menulist);
+
   render() {
     return (
-      <Menu
-        onClick={this.handleClick}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-      >
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="mail" />
-              <span>Navigation One</span>
-            </span>
-          }
-        >
-          <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1">Option 1</Menu.Item>
-            <Menu.Item key="2">Option 2</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="Item 2">
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="appstore" />
-              <span>Navigation Two</span>
-            </span>
-          }
-        >
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-          <SubMenu key="sub3" title="Submenu">
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-        </SubMenu>
-        <SubMenu
-          key="sub4"
-          title={
-            <span>
-              <Icon type="setting" />
-              <span>Navigation Three</span>
-            </span>
-          }
-        >
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
-        </SubMenu>
+      <Menu {...this.props} 
+          mode="inline"
+          theme="dark">
+        {this.createMenu}
       </Menu>
     );
   }
