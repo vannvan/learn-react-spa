@@ -23,7 +23,6 @@ export default class Home extends React.PureComponent{
         return flag;
       }
       const isPC = IsPC()
-      console.log(isPC)
       const elStyle = {
         display:isPC?'none':'block'
       }
