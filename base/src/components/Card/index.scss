@@ -1,0 +1,17 @@
+.card{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 8px;
+    &__title{
+        line-height: 45px;
+        border-bottom: 1px solid #ededed;
+    }
+    &__body{
+        padding: 10px;
+    }
+    &:hover{
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    }
+}

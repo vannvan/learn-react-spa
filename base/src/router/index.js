@@ -5,10 +5,13 @@ import User from '@/pages/User';
 import Game from '@/pages/Game';
 import Redux from '@/pages/Redux/index.jsx';
 import NotFound from '@/pages/Exception';
-import Antd from '@/pages/Antd';
-import antdTable from '@/pages/Antd/table';
-import antdMenu from '@/pages/Antd/menu';
+import Antd from '@/pages/Antd/index.jsx';
+import antdTable from '@/pages/Antd/table.jsx';
+import antdMenu from '@/pages/Antd/menu.jsx';
 import ApexCharts from '@/pages/ApexCharts/index.jsx'
+import cardProps from '@/pages/Card/index.jsx'
+import cardList from '@/pages/Card/list.jsx'
+import customInput from '@/pages/Example/customInput.jsx'
 
 
 const createHistory = require("history").createBrowserHistory
@@ -60,6 +63,21 @@ export const routes = [{
                 path: '/ApexCharts',
                 layout: BasicLayout,
                 component: ApexCharts
+            },
+            {
+                path: '/cardProps',
+                layout: BasicLayout,
+                component: cardProps
+            },
+            {
+                path: '/cardList',
+                layout: BasicLayout,
+                component: cardList
+            },
+            {
+                path: '/customInput',
+                layout: BasicLayout,
+                component: customInput
             }
         ]
     },
