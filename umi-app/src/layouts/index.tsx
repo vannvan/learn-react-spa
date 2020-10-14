@@ -75,7 +75,8 @@ export default class BasicLayout extends Component {
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo">
-            <img src={require('@/assets/images/logo.svg')} height={40} />
+            <img src={require('@/assets/images/logo.png')} height={40} />
+            <span>XX后台管理系统</span>
           </div>
           <Menu
             theme="dark"

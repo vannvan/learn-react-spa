@@ -7,7 +7,7 @@ export interface OpeartionProps {
   children: React.ReactNode;
 }
 
-export default (props: CardProps) => {
+export default (props: any) => {
   const { children } = props;
   return (
     <div className="operation-wrap">
