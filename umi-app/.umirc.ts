@@ -4,6 +4,7 @@ export default defineConfig({
         type: 'none',
     },
     routes: [
+        // { component: '@/pages/exception/404' },
         { path: '/', component: '@/pages/login/login' },
         {
             path: "/home",
