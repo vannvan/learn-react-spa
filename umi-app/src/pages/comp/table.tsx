@@ -1,11 +1,12 @@
-import { Table, Tag, Space, Input } from 'antd';
+import React from 'react';
+import { Table, Tag, Space, Input, Popconfirm, message } from 'antd';
 import Operation from './operation';
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: (text: String) => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -21,9 +22,9 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: tags => (
+    render: (tags: any) => (
       <>
-        {tags.map(tag => {
+        {tags.map((tag: any) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -40,14 +41,30 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    render: (text, record) => (
+    render: (text: String, record: any) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
-        <a>Delete</a>
+        <Popconfirm
+          title={'Are you sure delete this data？'}
+          onConfirm={confirm}
+          onCancel={cancel}
+          okText="Yes"
+          cancelText="No"
+        >
+          <a>delete</a>
+        </Popconfirm>
       </Space>
     ),
   },
 ];
+
+function confirm() {
+  message.info('Click on Yes');
+}
+
+function cancel() {
+  message.info('Clicj on No');
+}
 
 const data = [
   {

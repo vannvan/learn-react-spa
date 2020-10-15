@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 import './operation.less';
 export interface OpeartionProps {
   title: string;
@@ -11,8 +11,10 @@ export default (props: any) => {
   const { children } = props;
   return (
     <div className="operation-wrap">
-      {props.children}
-      <Button>查询</Button>
+      <Space size={'middle'}>
+        {props.children}
+        <Button>查询</Button>
+      </Space>
     </div>
   );
 };

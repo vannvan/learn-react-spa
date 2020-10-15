@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import './index.less';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { Link, history } from 'umi';
+import { Layout, Menu, Breadcrumb, Avatar } from 'antd';
+import { Link } from 'umi';
 
 const MENU_LIST = require('./menu.js').default;
 
@@ -13,7 +13,7 @@ const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 export default class BasicLayout extends Component {
-  rootSubmenuKeys = ['/comp', '/exception'];
+  rootSubmenuKeys = MENU_LIST.map((el: Object) => el.path);
   state = {
     collapsed: false,
     openKeys: ['/comp'],
@@ -76,7 +76,7 @@ export default class BasicLayout extends Component {
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo">
             <img src={require('@/assets/images/logo.png')} height={40} />
-            <span>XX后台管理系统</span>
+            <span>{!this.state.collapsed ? 'XX后台管理系统' : ''}</span>
           </div>
           <Menu
             theme="dark"
@@ -102,6 +102,9 @@ export default class BasicLayout extends Component {
               <Breadcrumb.Item>List</Breadcrumb.Item>
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
+            <span className="avatar-wrap">
+              <Avatar size={30}>USER</Avatar>
+            </span>
           </Header>
           <Content
             className="site-layout-background"
