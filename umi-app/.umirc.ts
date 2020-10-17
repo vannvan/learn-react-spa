@@ -12,6 +12,7 @@ export default defineConfig({
     },
     ignoreMomentLocale: true,
     routes: [
+        // { component: '@/pages/exception/404' },
         { path: '/', component: '@/pages/login/login' },
         {
             path: "/home",
