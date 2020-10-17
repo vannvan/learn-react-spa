@@ -15,7 +15,7 @@ const NormalLoginForm = () => {
       message.success({ content: '验证通过~', key, duration: 2 });
     }, 1000);
     setTimeout(() => {
-      history.push('/comp/home');
+      history.push('/home');
     }, 2000);
   };
 

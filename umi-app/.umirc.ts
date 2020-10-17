@@ -3,6 +3,14 @@ export default defineConfig({
     nodeModulesTransform: {
         type: 'none',
     },
+    "proxy": {
+        "/api": {
+            "target": "https://pvp.qq.com",
+            "changeOrigin": true,
+            "pathRewrite": { "^/api": "" }
+        }
+    },
+    ignoreMomentLocale: true,
     routes: [
         { path: '/', component: '@/pages/login/login' },
         {
@@ -19,7 +27,8 @@ export default defineConfig({
                 { path: "/comp/table", component: "@/pages/comp/table" },
                 { path: "/comp/form", component: "@/pages/comp/form" },
                 { path: '/comp/tree', component: '@/pages/comp/tree' },
-                { path: "/comp/modal", component: "@/pages/comp/modal" }
+                { path: "/comp/modal", component: "@/pages/comp/modal" },
+                { path: '/comp/hooks', component: '@/pages/comp/hooks' }
             ]
         },
         {
