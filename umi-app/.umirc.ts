@@ -28,22 +28,54 @@ export default defineConfig({
           component: '@/pages/comp/table',
           meta: { title: '表格' },
         },
-        { path: '/comp/form', component: '@/pages/comp/form' },
-        { path: '/comp/tree', component: '@/pages/comp/tree' },
-        { path: '/comp/modal', component: '@/pages/comp/modal' },
-        { path: '/comp/hooks', component: '@/pages/comp/hooks' },
-        { path: '/comp/route', component: '@/pages/comp/route' },
+        {
+          path: '/comp/form',
+          component: '@/pages/comp/form',
+          meta: { title: '表单' },
+        },
+        {
+          path: '/comp/tree',
+          component: '@/pages/comp/tree',
+          meta: { title: '树形组件' },
+        },
+        {
+          path: '/comp/modal',
+          component: '@/pages/comp/modal',
+          meta: { title: '模态框' },
+        },
+        {
+          path: '/comp/hooks',
+          component: '@/pages/comp/hooks',
+          meta: { title: 'hooks' },
+        },
+        {
+          path: '/comp/route',
+          component: '@/pages/comp/route',
+          meta: { title: '路由' },
+        },
       ],
     },
     {
       path: '/exception',
       component: '@/layouts/index',
-      routes: [{ path: '/exception/404', component: '@/pages/exception/404' }],
+      routes: [
+        {
+          path: '/exception/404',
+          component: '@/pages/exception/404',
+          meta: { title: '404' },
+        },
+      ],
     },
     {
       path: '/other',
       component: '@/layouts/index',
-      routes: [{ path: '/other/result', component: '@/pages/other/result' }],
+      routes: [
+        {
+          path: '/other/result',
+          component: '@/pages/other/result',
+          meta: { title: '结果页' },
+        },
+      ],
     },
   ],
 });

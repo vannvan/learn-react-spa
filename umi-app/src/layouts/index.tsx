@@ -13,15 +13,15 @@ const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 export default class BasicLayout extends Component<any, any> {
-  rootSubmenuKeys = MENU_LIST.map((el: Object) => el.path);
+  rootSubmenuKeys = MENU_LIST.map((el: object) => el.path);
   state = {
     collapsed: false,
     openKeys: ['/comp'],
   };
 
-  onOpenChange = (openKeys: Array<String>) => {
-    const latestOpenKey: String | undefined = openKeys.find(
-      (key: String) => this.state.openKeys.indexOf(key) === -1,
+  onOpenChange = (openKeys: Array<string>) => {
+    const latestOpenKey: string | undefined = openKeys.find(
+      (key: string) => this.state.openKeys.indexOf(key) === -1,
     );
     console.log(latestOpenKey);
     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -51,7 +51,7 @@ export default class BasicLayout extends Component<any, any> {
     let matchRouteMeta = routeList.find((el: any) => {
       return el.path == currentPathName;
     }).meta;
-    document.title = matchRouteMeta ? matchRouteMeta.title : 'ww-react-cli';
+    document.title = matchRouteMeta ? matchRouteMeta.title : '后台管理系统';
   }
 
   toggle = () => {
@@ -60,7 +60,7 @@ export default class BasicLayout extends Component<any, any> {
     });
   };
 
-  menuTag = function deep(menuData: Array<Object>) {
+  menuTag = function deep(menuData: Array<object>) {
     if (menuData && menuData.length > 0) {
       return menuData.map((item: any) => {
         if (item.children && item.children.length > 0) {
