@@ -11,7 +11,8 @@ export default [
             { name: "form", path: "/comp/form", id: 22 },
             { name: 'tree', path: '/comp/tree', id: 23 },
             { name: "modal", path: '/comp/modal', id: 24 },
-            { name: 'hooks', path: '/comp/hooks', id: 25 }
+            { name: 'hooks', path: '/comp/hooks', id: 25 },
+            { name: '路由方法', path: '/comp/route', id: 26 }
         ]
     },
     {

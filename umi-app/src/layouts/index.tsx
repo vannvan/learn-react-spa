@@ -12,7 +12,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-export default class BasicLayout extends Component {
+export default class BasicLayout extends Component<any, any> {
   rootSubmenuKeys = MENU_LIST.map((el: Object) => el.path);
   state = {
     collapsed: false,
@@ -34,14 +34,24 @@ export default class BasicLayout extends Component {
   };
 
   componentDidMount() {
-    this.rootSubmenuKeys.map((el: String) => {
+    this.rootSubmenuKeys.map((el: any) => {
+      let { pathname } = this.props.location;
       let reg = new RegExp(el);
-      if (reg.test(this.props.location.pathname)) {
+      if (reg.test(pathname)) {
         this.setState({
           openKeys: [el],
         });
       }
     });
+  }
+
+  componentDidUpdate() {
+    let currentPathName = this.props.location.pathname;
+    let routeList = this.props.route.routes;
+    let matchRouteMeta = routeList.find((el: any) => {
+      return el.path == currentPathName;
+    }).meta;
+    document.title = matchRouteMeta ? matchRouteMeta.title : 'ww-react-cli';
   }
 
   toggle = () => {
