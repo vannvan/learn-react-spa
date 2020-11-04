@@ -1,7 +1,6 @@
 import { createStore } from 'redux';
 import reducer from './reducer';
 
-console.log(reducer);
 const store = createStore(reducer);
 
 console.log(store.getState());

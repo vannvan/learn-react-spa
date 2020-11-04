@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Button, Space } from 'antd';
 import './operation.less';
 export interface OpeartionProps {
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
-export default (props: any) => {
+export default (props: OpeartionProps) => {
   const { children } = props;
   return (
     <div className="operation-wrap">
