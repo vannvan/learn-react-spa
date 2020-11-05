@@ -3,7 +3,11 @@ import TodoForm from './toto-form';
 import TodoShow from './todo-show';
 
 import store from '../../store';
-import { changeInputAction, addAction } from '../../store/actionCreators';
+import {
+  changeInputAction,
+  addAction,
+  deleteAction,
+} from '../../store/actionCreators';
 
 export default class TodoList extends React.Component<{}, any> {
   constructor(props: any) {
@@ -23,6 +27,10 @@ export default class TodoList extends React.Component<{}, any> {
     const action = addAction(this.state.inputValue);
     store.dispatch(action);
   }
+  handleDelete(index: number) {
+    const action = deleteAction(index);
+    store.dispatch(action);
+  }
 
   render() {
     return (
@@ -32,7 +40,7 @@ export default class TodoList extends React.Component<{}, any> {
           changeInputValue={this.changeInputValue}
           addTodoItem={this.addTodoItem}
         />
-        <TodoShow list={this.state.list} />
+        <TodoShow list={this.state.list} handleDelete={this.handleDelete} />
       </div>
     );
   }
