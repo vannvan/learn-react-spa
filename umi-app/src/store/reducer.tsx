@@ -1,10 +1,10 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes';
-export interface stateType {
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from './actionTypes';
+export interface StateType {
   inputValue: string;
   list: Array<object>;
 }
 
-export interface actionType {
+export interface ActionType {
   type: string;
   inputValue?: string;
   value?: {
@@ -12,16 +12,13 @@ export interface actionType {
     time: number;
   };
   index?: number;
+  data?: Array<object>;
 }
-const defaultState: stateType = {
+const defaultState: StateType = {
   inputValue: 'Write something',
-  list: [
-    { time: 1, title: '吃饭' },
-    { time: 2, title: '睡觉' },
-    { time: 3, title: '打豆豆' },
-  ],
+  list: [],
 };
-export default (state = defaultState, action: actionType) => {
+export default (state = defaultState, action: ActionType) => {
   console.log('action:', action);
   const newState = JSON.parse(JSON.stringify(state));
   switch (action.type) {
@@ -35,6 +32,10 @@ export default (state = defaultState, action: actionType) => {
       break;
     case DELETE_ITEM:
       newState.list.splice(action.index, 1);
+      return newState;
+      break;
+    case GET_LIST:
+      newState.list = typeof action.data == 'object' ? action.data.list : [];
       return newState;
       break;
   }

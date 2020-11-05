@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { List } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
-export interface propsType {
+export interface PropsType {
   list: Array<object>;
-  handleDelete: (index: number) => void;
+  handleDelete: (index: number, item?: object) => void;
 }
-export default (props: propsType) => {
+export default (props: PropsType) => {
   const { list, handleDelete } = props;
 
   return (
